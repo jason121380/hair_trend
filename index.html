@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram 趨勢分析工具 | 探索社群熱門關鍵字</title>
+    <meta name="description" content="使用我們的 Instagram 趨勢分析工具來探索、分析社群媒體上的熱門關鍵字和趨勢，優化您的社群策略">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh-tw.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Instagram 趨勢分析工具</h1>
+                <p class="subtitle">探索社群熱門關鍵字，掌握最新趨勢</p>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn" aria-label="切換主題">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+            </div>
+        </header>
+        
+        <main>
+            <section class="search-section">
+                <div class="search-filter-container">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="輸入關鍵字...">
+                        <button id="search-button">
+                            <i class="fas fa-search"></i> 搜尋
+                        </button>
+                    </div>
+                    
+                    <div class="date-filter">
+                        <div class="date-range-picker">
+                            <div class="date-input-wrapper">
+                                <span class="calendar-icon">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                                <input type="text" id="date-range" placeholder="選擇日期範圍">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="results-section">
+                <div class="results-container">
+                    <div class="posts-container">
+                        <div class="posts-header">
+                            <h2>相關貼文列表</h2>
+                            <div class="view-toggle">
+                                <button id="grid-view" class="view-button active"><i class="fas fa-th"></i> 網格</button>
+                                <button id="list-view" class="view-button"><i class="fas fa-list"></i> 列表</button>
+                            </div>
+                        </div>
+                        <div id="posts-list" class="grid-view"></div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h2>關鍵詞趨勢</h2>
+                        <canvas id="trend-chart"></canvas>
+                        <div class="trend-keywords">
+                            <h3>熱門關鍵字與趨勢字</h3>
+                            <div id="keywords-list" class="keywords-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="empty-state-container" id="empty-state">
+                <div class="empty-state">
+                    <i class="fas fa-search fa-3x"></i>
+                    <h2>開始您的關鍵字探索</h2>
+                    <p>在上方搜尋框輸入關鍵字，設定日期範圍以分析熱門趨勢</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 Instagram 趨勢分析工具 by Jason</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
