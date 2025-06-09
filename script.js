@@ -330,21 +330,28 @@ function performSearch() {
     const dates = dateRange.split(' 至 ');
     let startDate = dates[0];
     let endDate = dates.length > 1 ? dates[1] : dates[0];
-    
-    // 顯示結果區域，隱藏空狀態
-    toggleEmptyState(false);
-    
-    // 獲取假資料
-    const posts = generateFakeData(keyword, startDate, endDate);
-    
-    // 顯示貼文列表
-    displayPosts(posts);
-    
-    // 更新圖表
-    updateChart(keyword, startDate, endDate);
-    
-    // 顯示熱門關鍵字和趨勢字
-    displayKeywords(keyword, startDate, endDate);
+
+    const loadingOverlay = document.getElementById('loading-overlay');
+    if (loadingOverlay) loadingOverlay.style.display = 'flex';
+
+    setTimeout(() => {
+        // 顯示結果區域，隱藏空狀態
+        toggleEmptyState(false);
+
+        // 獲取假資料
+        const posts = generateFakeData(keyword, startDate, endDate);
+
+        // 顯示貼文列表
+        displayPosts(posts);
+
+        // 更新圖表
+        updateChart(keyword, startDate, endDate);
+
+        // 顯示熱門關鍵字和趨勢字
+        displayKeywords(keyword, startDate, endDate);
+
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
+    }, 500);
 }
 
 // 顯示貼文列表
