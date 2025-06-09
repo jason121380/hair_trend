@@ -52,6 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             chartContainer.classList.remove('sticky-active');
         }
+
+        // 顯示或隱藏回到頂部按鈕
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
     });
     
     // 主題切換功能
@@ -80,6 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateChartTheme(savedTheme);
             }
         }
+    }
+
+    // 回到頂部按鈕點擊事件
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 });
 
